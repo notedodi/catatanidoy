@@ -1,5 +1,4 @@
-
-const CACHE_NAME = 'transaksi-app-cache-v2'; // Ubah versi cache setiap kali Anda mengubah aset yang di-cache
+const CACHE_NAME = 'transaksi-app-cache-v3'; // Ubah versi cache setiap kali Anda mengubah aset yang di-cache
 const urlsToCache = [
     '/', // Root of the application
     '/index.html',
@@ -8,16 +7,16 @@ const urlsToCache = [
     'https://cdn.tailwindcss.com',
     'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css',
     'https://html2canvas.hertzen.com/dist/html2canvas.min.js',
-    // Placeholder icons (PENTING: di aplikasi nyata, ganti ini dengan URL ikon asli Anda)
-    'https://placehold.co/48x48/f7f7f7/000000?text=TK',
-    'https://placehold.co/72x72/f7f7f7/000000?text=TK',
-    'https://placehold.co/96x96/f7f7f7/000000?text=TK',
-    'https://placehold.co/144x144/f7f7f7/000000?text=TK',
-    'https://placehold.co/168x168/f7f7f7/000000?text=TK',
-    'https://placehold.co/192x192/f7f7f7/000000?text=TK',
-    'https://placehold.co/256x256/f7f7f7/000000?text=TK',
-    'https://placehold.co/384x384/f7f7f7/000000?text=TK',
-    'https://placehold.co/512x512/f7f7f7/000000?text=TK'
+    // Ikon asli (PENTING: Pastikan path ini sesuai dengan struktur folder Anda di Vercel)
+    '/public/icons/icon-48x48.png',
+    '/public/icons/icon-72x72.png',
+    '/public/icons/icon-96x96.png',
+    '/public/icons/icon-144x144.png',
+    '/public/icons/icon-168x168.png',
+    '/public/icons/icon-192x192.png',
+    '/public/icons/icon-256x256.png',
+    '/public/icons/icon-384x384.png',
+    '/public/icons/icon-512x512.png'
 ];
 
 // Event: 'install' - Dipicu saat Service Worker pertama kali diinstal.
@@ -62,7 +61,6 @@ self.addEventListener('fetch', event => {
                         // Kita harus mengkloningnya agar browser dapat mengkonsumsi satu dan kita dapat mengkonsumsi yang lain.
                         const responseToCache = networkResponse.clone();
 
-                        // Simpan respons jaringan yang baru ke cache
                         caches.open(CACHE_NAME)
                             .then(cache => {
                                 cache.put(event.request, responseToCache);
