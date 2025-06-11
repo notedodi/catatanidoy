@@ -1,4 +1,4 @@
-const CACHE_NAME = 'transaksi-app-cache-v3'; // Ubah versi cache setiap kali Anda mengubah aset yang di-cache
+const CACHE_NAME = 'transaksi-app-cache-v4'; // Ubah versi cache setiap kali Anda mengubah aset yang di-cache
 const urlsToCache = [
     '/', // Root of the application
     '/index.html',
